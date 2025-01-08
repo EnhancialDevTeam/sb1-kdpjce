@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="2.25626in" height="2.25626in" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 4.77994 4.77994"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil0 {fill:#F59324}
+    .fil1 {fill:#164F2C;fill-rule:nonzero}
+    .fil2 {fill:white;fill-rule:nonzero}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_813210488">
+   <circle id="_443865488" class="fil0" cx="2.38997" cy="2.38997" r="2.38997"/>
+   <path id="_440359176" class="fil1" d="M1.66844 1.90338l0 0c0,-0.333484 0.270337,-0.603846 0.603821,-0.603846l1.16231 0 0 0c0,0.3335 -0.270337,0.603846 -0.603821,0.603846l-1.16231 0z"/>
+   <path id="_809408136" class="fil1" d="M1.66844 3.42689l0 0c0,-0.333484 0.270337,-0.603854 0.603821,-0.603854l1.16231 0 0 0c0,0.333517 -0.270337,0.603854 -0.603821,0.603854l-1.16231 0z"/>
+   <path id="_811597016" class="fil2" d="M1.36181 2.66513l-0.52491 0c0,-0.333484 0.270337,-0.603821 0.603829,-0.603821l1.55597 0 0 0c0,0.333484 -0.270337,0.603821 -0.603812,0.603821l-1.03108 0z"/>
+  </g>
+ </g>
+</svg>

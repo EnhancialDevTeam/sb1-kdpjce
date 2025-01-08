@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply text-gray-900 bg-white;
+  }
+
+  h1 {
+    @apply text-3xl md:text-5xl;
+  }
+
+  h2 {
+    @apply text-2xl md:text-4xl;
+  }
+}
+
+@layer components {
+  .container-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-12 md:py-24;
+  }
+
+  .btn {
+    @apply px-4 md:px-6 py-2.5 md:py-3 rounded-full transition-all duration-200 font-medium text-sm md:text-base whitespace-nowrap inline-flex items-center justify-center;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary/90;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-white hover:bg-secondary/90;
+  }
+  
+  .input {
+    @apply w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1;
+  }
+
+  .card-body {
+    @apply p-4 md:p-6 lg:p-8;
+  }
+
+  .section-title {
+    @apply text-2xl md:text-4xl font-bold text-primary mb-4 md:mb-6;
+  }
+
+  .section-description {
+    @apply text-base md:text-xl text-gray-600;
+  }
+
+  .grid-cols-responsive {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8;
+  }
+
+  .aspect-image {
+    @apply aspect-w-16 aspect-h-9 relative overflow-hidden;
+  }
+
+  .image-hover {
+    @apply object-cover w-full h-full group-hover:scale-105 transition-transform duration-300;
+  }
+}
