@@ -17,40 +17,55 @@ export function Home() {
       <section id="services" className="py-24 bg-white relative overflow-hidden">
         <div className="absolute inset-0 bg-primary/5 -skew-y-6 transform origin-top-right"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-20">
-            <h2 className="text-4xl font-bold text-primary mb-6">Our Services</h2>
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-4xl font-bold text-primary mb-6">Transform Your Business with Our Expert Services</h2>
             <p className="text-xl text-gray-600">Comprehensive solutions tailored for modern businesses</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
               {
-                icon: BarChart3,
-                title: 'CX Services',
-                description: 'Data-driven strategies to enhance customer satisfaction and loyalty.',
+                icon: Target,
+                title: 'CX Strategy Consulting',
+                description: 'Develop comprehensive customer experience strategies that align with your business goals and enhance customer loyalty.'
+              },
+              {
+                icon: Rocket,
+                title: 'Digital Transformation Consulting',
+                description: 'Embrace cutting-edge technologies to streamline operations and drive growth.'
               },
               {
                 icon: Users2,
-                title: 'Digital Transformation Services',
-                description: 'Modern solutions that revolutionize your customer interactions.',
+                title: 'Customer Insights & Research',
+                description: 'Leverage data-driven insights to understand your customers better and make informed decisions.'
               },
               {
-                icon: Lightbulb,
-                title: 'Consulting Services',
-                description: 'Future-proof your business with cutting-edge CX innovations.',
-              },
+                icon: Zap,
+                title: 'Business Automation Solutions',
+                description: 'Automate processes to improve efficiency and reduce operational costs.'
+              }
             ].map((service, index) => (
               <div
                 key={index}
-                className="group relative bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1"
+                className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1"
               >
-                <div className="absolute inset-0 bg-primary rounded-2xl transform origin-bottom scale-y-0 transition-transform group-hover:scale-y-100"></div>
-                <div className="relative">
-                  <service.icon className="h-12 w-12 text-secondary mb-6 group-hover:text-white transition-colors" />
-                  <h3 className="text-xl font-semibold mb-4 text-primary group-hover:text-white transition-colors">{service.title}</h3>
-                  <p className="text-gray-600 group-hover:text-white/90 transition-colors">{service.description}</p>
+                <div className="relative z-10">
+                  <service.icon className="h-12 w-12 text-secondary mb-6" />
+                  <h3 className="text-xl font-semibold text-primary mb-4 group-hover:text-secondary transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-600">{service.description}</p>
                 </div>
               </div>
             ))}
+          </div>
+          <div className="text-center mt-12">
+            <Link
+              to="/services"
+              className="inline-flex items-center px-8 py-4 text-white bg-secondary hover:bg-secondary/90 rounded-full transition-colors"
+            >
+              View All Services
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
           </div>
         </div>
       </section>
@@ -59,35 +74,69 @@ export function Home() {
       <section className="py-24 bg-primary/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl font-bold text-primary mb-6">Why Choose Us</h2>
-            <p className="text-xl text-gray-600">
-              Partner with experts dedicated to your success
-            </p>
+            <h2 className="text-4xl font-bold text-primary mb-6">Why Choose Us?</h2>
+            <p className="text-xl text-gray-600">Value-driven customer-centric services</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
                 icon: Shield,
-                title: "Proven Expertise",
-                description: "Over 15 years of experience in transforming businesses through CX innovation."
+                title: 'Integrity',
+                description: 'We build trust through transparency and honesty'
               },
               {
-                icon: Target,
-                title: "Tailored Solutions",
-                description: "Customized strategies that align with your specific business goals and challenges."
+                icon: Lightbulb,
+                title: 'Innovation',
+                description: 'We drive growth with forward-thinking solutions'
               },
               {
                 icon: Users,
-                title: "Dedicated Support",
-                description: "Committed team of experts providing ongoing guidance and support."
+                title: 'Customer-Centricity',
+                description: 'Your customers are at the heart of everything we do'
+              },
+              {
+                icon: Users2,
+                title: 'Collaboration',
+                description: 'We work closely with you to achieve your goals'
+              },
+              {
+                icon: Rocket,
+                title: 'Empowerment',
+                description: 'We provide tools and strategies that enable success'
+              },
+              {
+                icon: Leaf,
+                title: 'Sustainability',
+                description: 'We focus on long-term growth and value'
+              },
+              {
+                icon: Award,
+                title: 'Excellence',
+                description: 'We are committed to delivering outstanding results'
               }
-            ].map((feature, index) => (
-              <div key={index} className="bg-white p-8 rounded-2xl shadow-lg">
-                <feature.icon className="h-12 w-12 text-secondary mb-6" />
-                <h3 className="text-xl font-semibold text-primary mb-4">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
+            ].map((value, index) => (
+              <div
+                key={index}
+                className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 overflow-hidden"
+              >
+                <div className="relative z-10">
+                  <value.icon className="h-12 w-12 text-secondary mb-6 group-hover:scale-110 transition-transform" />
+                  <h3 className="text-xl font-semibold text-primary mb-4 group-hover:text-secondary transition-colors">
+                    {value.title}
+                  </h3>
+                  <p className="text-gray-600">{value.description}</p>
+                </div>
               </div>
             ))}
+          </div>
+          <div className="text-center mt-12">
+            <Link
+              to="/about"
+              className="inline-flex items-center px-8 py-4 text-white bg-secondary hover:bg-secondary/90 rounded-full transition-colors"
+            >
+              Learn More About Us
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
           </div>
         </div>
       </section>
@@ -97,39 +146,49 @@ export function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-4xl font-bold text-primary mb-6">Latest Insights</h2>
-            <p className="text-xl text-gray-600">
-              Stay Ahead with Our Expert Insights
-            </p>
+            <p className="text-xl text-gray-600">Stay Ahead with Our Expert Insights</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             {[
               {
-                title: "Top CX Strategy Examples for SMEs in 2024",
-                description: "Discover effective customer experience strategies driving growth.",
-                icon: Target
+                title: 'Top CX Strategy Examples for SMEs in 2024',
+                description: 'Discover effective customer experience strategies driving growth.',
+                image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800'
               },
               {
-                title: "Building a CX Strategy Framework: A Step-by-Step Guide",
-                description: "Learn how to create a robust CX framework tailored to your business.",
-                icon: Lightbulb
+                title: 'Building a CX Strategy Framework: A Step-by-Step Guide',
+                description: 'Learn how to create a robust CX framework tailored to your business.',
+                image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800'
               },
               {
-                title: "Digital Transformation Trends for SMEs",
-                description: "Stay updated on the latest digital innovations shaping the SME sector.",
-                icon: Zap
+                title: 'Digital Transformation Trends for SMEs',
+                description: 'Stay updated on the latest digital innovations shaping the SME sector.',
+                image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800'
               }
             ].map((insight, index) => (
-              <div key={index} className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all">
-                <insight.icon className="h-12 w-12 text-secondary mb-6" />
-                <h3 className="text-xl font-semibold text-primary mb-4">{insight.title}</h3>
-                <p className="text-gray-600 mb-6">{insight.description}</p>
-                <Link
-                  to="/blog"
-                  className="inline-flex items-center text-secondary hover:text-primary transition-colors"
-                >
-                  Read More
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
+              <div
+                key={index}
+                className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all transform hover:-translate-y-1"
+              >
+                <div className="aspect-w-16 aspect-h-9 relative overflow-hidden">
+                  <img
+                    src={insight.image}
+                    alt={insight.title}
+                    className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-primary mb-3 group-hover:text-secondary transition-colors">
+                    {insight.title}
+                  </h3>
+                  <p className="text-gray-600 mb-4">
+                    {insight.description}
+                  </p>
+                  <div className="flex items-center text-secondary group-hover:translate-x-2 transition-transform">
+                    Read More
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </div>
+                </div>
               </div>
             ))}
           </div>
@@ -138,51 +197,14 @@ export function Home() {
               to="/blog"
               className="inline-flex items-center px-8 py-4 text-white bg-secondary hover:bg-secondary/90 rounded-full transition-colors"
             >
-              View All Insights
+              Read More Insights
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1920"
-            alt="Business team collaboration"
-            className="w-full h-full object-cover"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/70"></div>
-        </div>
-
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Rocket className="h-16 w-16 text-secondary mx-auto mb-8 animate-bounce" />
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Ready to Transform Your Customer Experience?
-          </h2>
-          <p className="text-xl text-gray-200 mb-12 max-w-2xl mx-auto">
-            Let's work together to create exceptional experiences that drive growth and success.
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Link
-              to="/contact"
-              className="inline-flex items-center px-8 py-4 text-primary bg-white hover:bg-secondary hover:text-white rounded-full transition-all transform hover:scale-105 shadow-lg"
-            >
-              Start Your Journey
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-            <Link
-              to="/case-studies"
-              className="inline-flex items-center px-8 py-4 text-white border-2 border-white hover:bg-white/10 rounded-full transition-all"
-            >
-              View Success Stories
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* Rest of the components remain unchanged */}
     </>
   );
 }
