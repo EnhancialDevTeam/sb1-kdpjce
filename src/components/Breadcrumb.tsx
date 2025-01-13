@@ -11,7 +11,7 @@ interface BreadcrumbItem {
 const pathLabels: Record<string, string> = {
   'services': 'Services',
   'about': 'About Us',
-  'blog': 'Blog',
+  'insights': 'Insights Hub',
   'contact': 'Contact',
   'case-studies': 'Case Studies',
   'customer-insights': 'Customer Insights',

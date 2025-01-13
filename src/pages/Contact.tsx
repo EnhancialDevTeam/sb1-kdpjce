@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Phone, Clock, MessageSquare, Calendar, MapPin } from 'lucide-react';
+import { useEmail } from '../hooks/useEmail';
+import { validateEmail, validateRequired } from '../utils/validation';
 
 interface FormData {
   name: string;
@@ -13,21 +15,60 @@ interface FormData {
 }
 
 export function Contact() {
+  const { send, loading, error: emailError } = useEmail();
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     phone: '',
     company: '',
-    service: 'CX Services',
+    service: 'CX Strategy Consulting',
     date: '',
     time: '',
     message: ''
   });
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log('Form submitted:', formData);
+    
+    // Validate required fields
+    if (!validateRequired(formData.name) || !validateEmail(formData.email) || 
+        !validateRequired(formData.service) || !validateRequired(formData.message)) {
+      setStatus('error');
+      return;
+    }
+
+    try {
+      await send({
+        to_name: 'Enablerry Team',
+        from_name: formData.name,
+        reply_to: formData.email,
+        message: `
+Service: ${formData.service}
+Company: ${formData.company}
+Phone: ${formData.phone}
+Date: ${formData.date}
+Time: ${formData.time}
+
+Message:
+${formData.message}
+        `,
+      });
+      
+      setStatus('success');
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        company: '',
+        service: 'CX Strategy Consulting',
+        date: '',
+        time: '',
+        message: ''
+      });
+    } catch (err) {
+      setStatus('error');
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -37,6 +78,13 @@ export function Contact() {
       [name]: value
     }));
   };
+
+  const serviceOptions = [
+    'CX Strategy Consulting',
+    'Customer Insights & Research',
+    'Digital Transformation',
+    'Process Automation'
+  ];
 
   return (
     <div className="pt-20">
@@ -92,6 +140,7 @@ export function Contact() {
                       value={formData.name}
                       onChange={handleChange}
                       className="input"
+                      disabled={loading}
                     />
                   </div>
                   <div>
@@ -106,6 +155,7 @@ export function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       className="input"
+                      disabled={loading}
                     />
                   </div>
                 </div>
@@ -122,6 +172,7 @@ export function Contact() {
                       value={formData.phone}
                       onChange={handleChange}
                       className="input"
+                      disabled={loading}
                     />
                   </div>
                   <div>
@@ -135,6 +186,7 @@ export function Contact() {
                       value={formData.company}
                       onChange={handleChange}
                       className="input"
+                      disabled={loading}
                     />
                   </div>
                 </div>
@@ -150,10 +202,13 @@ export function Contact() {
                     value={formData.service}
                     onChange={handleChange}
                     className="input"
+                    disabled={loading}
                   >
-                    <option value="CX Services">CX Services</option>
-                    <option value="Digital Transformation">Digital Transformation</option>
-                    <option value="Consulting Services">Consulting Services</option>
+                    {serviceOptions.map((option) => (
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
+                    ))}
                   </select>
                 </div>
 
@@ -170,6 +225,7 @@ export function Contact() {
                       value={formData.date}
                       onChange={handleChange}
                       className="input"
+                      disabled={loading}
                     />
                   </div>
                   <div>
@@ -184,30 +240,46 @@ export function Contact() {
                       value={formData.time}
                       onChange={handleChange}
                       className="input"
+                      disabled={loading}
                     />
                   </div>
                 </div>
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                    Message
+                    Message *
                   </label>
                   <textarea
                     id="message"
                     name="message"
                     rows={4}
+                    required
                     value={formData.message}
                     onChange={handleChange}
                     className="input"
                     placeholder="Tell us about your project or requirements..."
+                    disabled={loading}
                   ></textarea>
                 </div>
 
+                {status === 'success' && (
+                  <div className="p-4 bg-green-50 text-green-700 rounded-lg">
+                    Thank you for your message! We'll get back to you soon.
+                  </div>
+                )}
+
+                {(status === 'error' || emailError) && (
+                  <div className="p-4 bg-red-50 text-red-700 rounded-lg">
+                    {emailError?.message || 'Please check your input and try again.'}
+                  </div>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full btn btn-secondary shadow-lg hover:shadow-xl"
+                  disabled={loading}
+                  className="w-full btn btn-secondary shadow-lg hover:shadow-xl disabled:opacity-50"
                 >
-                  Schedule Consultation
+                  {loading ? 'Sending...' : 'Schedule Consultation'}
                 </button>
               </form>
             </div>

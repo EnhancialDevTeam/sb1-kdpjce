@@ -6,14 +6,17 @@ import { Breadcrumb } from './components/Breadcrumb';
 import { Home } from './pages/Home';
 import { About } from './pages/About';
 import { Services } from './pages/Services';
-import { Blog } from './pages/Blog';
-import { BlogPost } from './pages/BlogPost';
 import { Contact } from './pages/Contact';
 import { CaseStudies } from './pages/CaseStudies';
 import { CustomerInsights } from './pages/services/CustomerInsights';
 import { CXStrategy } from './pages/services/CXStrategy';
 import { DigitalStrategy } from './pages/services/DigitalStrategy';
 import { ProcessOptimization } from './pages/services/ProcessOptimization';
+import { InsightsHub } from './pages/InsightsHub';
+import { Blog } from './pages/Blog';
+import { BlogPostPage } from './pages/BlogPost';
+import { FAQ } from './pages/FAQ';
+import { Resources } from './pages/Resources';
 
 export default function App() {
   return (
@@ -29,10 +32,13 @@ export default function App() {
           <Route path="/services/cx-strategy" element={<CXStrategy />} />
           <Route path="/services/digital-strategy" element={<DigitalStrategy />} />
           <Route path="/services/process-optimization" element={<ProcessOptimization />} />
+          <Route path="/insights" element={<InsightsHub />} />
           <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:id" element={<BlogPost />} />
+          <Route path="/blog/:slug" element={<BlogPostPage />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/case-studies" element={<CaseStudies />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/resources" element={<Resources />} />
         </Routes>
       </main>
       <Footer />

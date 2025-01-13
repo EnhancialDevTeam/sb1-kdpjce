@@ -1,11 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Calendar, ArrowRight, Clock } from 'lucide-react';
+import { SafeLink } from '../common/SafeLink';
 import { formatDate } from '../../utils/date';
-import { ROUTES } from '../../constants/routes';
 
 interface BlogCardProps {
-  id: number;
+  id: number | string;
   title: string;
   excerpt: string;
   image: string;
@@ -27,7 +26,7 @@ export function BlogCard({
 }: BlogCardProps) {
   return (
     <article className="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-xl transition-shadow">
-      <Link to={ROUTES.BLOG_POST(id.toString())} className="block">
+      <SafeLink to={`/blog/${id}`} className="block">
         <div className="aspect-w-16 aspect-h-9 relative overflow-hidden">
           <img
             src={image}
@@ -67,7 +66,7 @@ export function BlogCard({
             </span>
           </div>
         </div>
-      </Link>
+      </SafeLink>
     </article>
   );
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { SafeLink } from './common/SafeLink';
 import { Logo } from './Logo';
 
 export function Footer() {
@@ -17,39 +17,49 @@ export function Footer() {
             <h4 className="text-lg font-semibold mb-4">Services</h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/services#cx" className="text-gray-300 hover:text-white">
-                  CX Services
-                </Link>
+                <SafeLink to="/services/customer-insights" className="text-gray-300 hover:text-white">
+                  Customer Insights
+                </SafeLink>
               </li>
               <li>
-                <Link to="/services#digital" className="text-gray-300 hover:text-white">
-                  Digital Transformation
-                </Link>
+                <SafeLink to="/services/cx-strategy" className="text-gray-300 hover:text-white">
+                  CX Strategy
+                </SafeLink>
               </li>
               <li>
-                <Link to="/services#consulting" className="text-gray-300 hover:text-white">
-                  Consulting Services
-                </Link>
+                <SafeLink to="/services/digital-strategy" className="text-gray-300 hover:text-white">
+                  Digital Strategy
+                </SafeLink>
+              </li>
+              <li>
+                <SafeLink to="/services/process-optimization" className="text-gray-300 hover:text-white">
+                  Process Optimization
+                </SafeLink>
               </li>
             </ul>
           </div>
           <div>
-            <h4 className="text-lg font-semibold mb-4">Company</h4>
+            <h4 className="text-lg font-semibold mb-4">Resources</h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/about" className="text-gray-300 hover:text-white">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link to="/case-studies" className="text-gray-300 hover:text-white">
-                  Case Studies
-                </Link>
-              </li>
-              <li>
-                <Link to="/blog" className="text-gray-300 hover:text-white">
+                <SafeLink to="/blog" className="text-gray-300 hover:text-white">
                   Blog
-                </Link>
+                </SafeLink>
+              </li>
+              <li>
+                <SafeLink to="/case-studies" className="text-gray-300 hover:text-white">
+                  Case Studies
+                </SafeLink>
+              </li>
+              <li>
+                <SafeLink to="/resources" className="text-gray-300 hover:text-white">
+                  Resources
+                </SafeLink>
+              </li>
+              <li>
+                <SafeLink to="/insights" className="text-gray-300 hover:text-white">
+                  Insights Hub
+                </SafeLink>
               </li>
             </ul>
           </div>
@@ -58,6 +68,11 @@ export function Footer() {
             <ul className="space-y-2">
               <li className="text-gray-300">hello@enablerry.com</li>
               <li className="text-gray-300">+1 (555) 123-4567</li>
+              <li>
+                <SafeLink to="https://growthedgehub.com" className="text-gray-300 hover:text-white">
+                  GrowthEdge Hub
+                </SafeLink>
+              </li>
             </ul>
           </div>
         </div>
